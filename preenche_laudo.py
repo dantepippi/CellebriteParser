@@ -5,6 +5,7 @@ import codecs
 from os.path import join
 import ConfigParser
 import isomaker
+from isomaker import gera_iso
 
 tmp_dir = 'tmp/'
 file_path = '/home/dev/Dropbox/'
@@ -16,8 +17,8 @@ def get_data_por_extenso(data):
 
 def abreDoc(arquivo):
     """
-    Abre o documento no diretorio temporario e retorna um array com o conteudo
-    dos dois arquivos de interesse (document e header)
+    Extrai os arquivos do documento no diretorio temporario e retorna um array com o conteudo
+    dos dois arquivos de interesse (document.xml e header1.xml)
     """
     mydoc = zipfile.ZipFile(arquivo)
     mydoc.extractall(tmp_dir)
@@ -26,7 +27,6 @@ def abreDoc(arquivo):
 
 def salva_documento(output):
     os.chdir(tmp_dir)
-    os.walk('.')
     document = zipfile.ZipFile(
         output, mode='w', compression=zipfile.ZIP_DEFLATED)
     for dirpath, dirnames, filenames in os.walk('.'):
@@ -53,7 +53,9 @@ newdocument = open(tmp_dir + 'word/document.xml', 'w')
 newheader = open(tmp_dir + 'word/header1.xml', 'w')
 # Substitui os valores do ASAP no documento
 config = abre_arquivo_conf()
-document[0] = replace(document[0], 'NUMLAUDO', config.get('LAUDO', 'NUMERO', 0))
+num_laudo = config.get('LAUDO', 'NUMERO', 0).encode('UTF-8')
+hash_iso = gera_iso('/home/Cellebrite/', 'L'+ num_laudo.replace("/", "_"))
+document[0] = replace(document[0], 'NUMLAUDO', num_laudo)
 document[0] = replace(document[0], 'DATALAUDO', get_data_por_extenso(config.get('LAUDO', 'DATA', 0)))
 document[0] = replace(document[0], 'NOMEPERITO', config.get('LAUDO', 'PCF1', 0).split("|")[0])
 document[0] = replace(document[0], 'NUMIPL', config.get('LAUDO', 'NUMERO', 0))
@@ -62,6 +64,7 @@ document[0] = replace(document[0], 'DOCSOLICITANTE', config.get('SOLICITACAO', '
 document[0] = replace(document[0], 'DTDOC', config.get('SOLICITACAO', 'DATA_DOCUMENTO', 0))
 document[0] = replace(document[0], 'NUMSISCRIM', config.get('SOLICITACAO', 'NUMERO_CRIMINALISTICA', 0))
 document[0] = replace(document[0], 'DTSISCRIM', config.get('SOLICITACAO', 'DATA_CRIMINALISTICA', 0))
+document[0] = replace(document[0], 'HASHISO', hash_iso)
 
 # Substitui o numero do laudo no header
 document[1] = replace(document[1], 'NUMLAUDO', config.get('LAUDO', 'NUMERO', 0))
