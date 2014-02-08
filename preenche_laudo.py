@@ -4,6 +4,7 @@ import os
 import codecs
 from os.path import join
 import ConfigParser
+import isomaker
 
 tmp_dir = 'tmp/'
 file_path = '/home/dev/Dropbox/'
