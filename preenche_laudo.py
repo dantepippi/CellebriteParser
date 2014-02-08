@@ -54,7 +54,7 @@ newheader = open(tmp_dir + 'word/header1.xml', 'w')
 # Substitui os valores do ASAP no documento
 config = abre_arquivo_conf()
 num_laudo = config.get('LAUDO', 'NUMERO', 0).encode('UTF-8')
-hash_iso = gera_iso('/home/Cellebrite/', 'L'+ num_laudo.replace("/", "_"))
+hash_iso = gera_iso('/home/CellebriteParser/', 'L'+ num_laudo.replace("/", "_"))
 document[0] = replace(document[0], 'NUMLAUDO', num_laudo)
 document[0] = replace(document[0], 'DATALAUDO', get_data_por_extenso(config.get('LAUDO', 'DATA', 0)))
 document[0] = replace(document[0], 'NOMEPERITO', config.get('LAUDO', 'PCF1', 0).split("|")[0])

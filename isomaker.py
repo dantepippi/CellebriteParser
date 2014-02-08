@@ -16,7 +16,8 @@ def gera_hashes(pasta):
     os.rename(tmp_dir + 'hashes.txt', pasta + 'hashes.txt')
     
 def gera_iso(pasta, label):
-    nome_iso = label + '.iso'
+    gera_hashes(pasta)
+    nome_iso = pasta_teste + label + '.iso'
     p = subprocess.Popen(['mkisofs', '-J', '-l', '-R', '-V', label, '-iso-level', '4', '-o', nome_iso, pasta])
     p.communicate()
     return hashfile(nome_iso)
