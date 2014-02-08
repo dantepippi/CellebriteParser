@@ -1,5 +1,4 @@
 import subprocess
-import shlex
 
 def gera_iso(pasta, label):
     subprocess.call(['mkisofs', '-J', '-l', '-R', '-V', label, '-iso-level', '4', '-o', '/home/dev/Dropbox/output.iso', pasta])
