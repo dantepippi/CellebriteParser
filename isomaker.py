@@ -20,6 +20,7 @@ def gera_iso(pasta, label):
     nome_iso = pasta_teste + label + '.iso'
     p = subprocess.Popen(['mkisofs', '-J', '-l', '-R', '-V', label, '-iso-level', '4', '-o', nome_iso, pasta])
     p.communicate()
+    os.remove(pasta + 'hashes.txt')
     return hashfile(nome_iso)
 
 def hashfile(filename, hasher=hashlib.sha256(), blocksize=65536):
