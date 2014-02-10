@@ -6,6 +6,7 @@ from os.path import join
 import ConfigParser
 from isomaker import gera_iso
 import glob
+import xmlparse
 
 tmp_dir = 'tmp/'
 file_path = sys.argv[1]
@@ -50,7 +51,7 @@ def abre_arquivo_conf():
 
 def percorre_arquivos_xml():
     for arq in glob.glob(file_path + "*.xml"):\
-    pass adsfafa ds fa fad f
+        xmlparse.parse_arquivo_xml(arq)
 
 document = abreDoc(file_path + 'd1.docx')
 newdocument = open(tmp_dir + 'word/document.xml', 'w')
