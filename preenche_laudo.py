@@ -49,8 +49,8 @@ def abre_arquivo_conf():
     return config
 
 def percorre_arquivos_xml():
-    for arq in glob.glob(file_path+"*.xml"):\
-    pass
+    for arq in glob.glob(file_path + "*.xml"):\
+    pass adsfafa ds fa fad f
 
 document = abreDoc(file_path + 'd1.docx')
 newdocument = open(tmp_dir + 'word/document.xml', 'w')
