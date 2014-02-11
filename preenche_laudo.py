@@ -46,27 +46,26 @@ def abre_arquivo_conf():
         config.readfp(codecs.open(arq, "r", 'LATIN-1'))
     return config
 
-def percorre_arquivos_xml(document, dir):
-    for arq in glob.glob(file_path + dir + "/*.xml"):
+def percorre_arquivos_xml(document, diretorio):
+    for arq in glob.glob(file_path + diretorio + "/*.xml"):
         document = parse_arquivo_xml(arq, document)
-        #os.remove(arq)
+        #os.remove(arq) 
     return document
 
 def get_lista_diretorios():
     return sorted([name for name in os.listdir(file_path) if os.path.isdir(os.path.join(file_path, name))])
 
 def cria_secoes_tabela(document, lista_dirs):
-    for dir in lista_dirs:
-        conteudo_tabela = open('./templatenovo.txt').read()
+    for diretorio in lista_dirs:
+        conteudo_tabela = open('./template_first.txt').read()
         conteudo_tabela = conteudo_tabela.replace('\n', '')
         document = insere_tabela(document, conteudo_tabela)
-        document = percorre_arquivos_xml(document, dir)
-    return document
+        document = percorre_arquivos_xml(document, diretorio)
+    return document 
  
 def insere_tabela(document, tabela):
-     posicao = re.search(r'<w:p><w:pPr><w:pStyle w:val="style52"/><w:jc w:val="both"/></w:pPr><w:r><w:rPr><w:b/><w:iCs/><w:spacing w:val="-3"/></w:rPr><w:t>Legenda:</w:t>', document).start()
-     print document[:posicao]
-     return document[:posicao] + tabela + document[posicao:]
+    posicao = re.search(r'<w:p w:rsidR="00F00A10" w:rsidRDefault="00FA64C5"><w:pPr><w:pStyle w:val="LLeg"/><w:jc w:val="both"/></w:pPr><w:r><w:rPr><w:b/><w:iCs/><w:spacing w:val="-3"/></w:rPr><w:t>Legenda:</w:t>', document).start()
+    return document[:posicao] + tabela + document[posicao:]
      
         
 (document, header) = abreDoc(file_path + 'd1.docx')

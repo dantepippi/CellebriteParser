@@ -16,7 +16,7 @@ def parse_arquivo_xml(arquivo_xml, document):
     tree = ET.ElementTree(file=arquivo_xml)
     root = tree.getroot()
     if root.find('report/general_information/report_type').text == 'cell':
-    	# pega a segunda parte do split (retira o caminho e deixa so arquivo com extensao) e a primeira parte do splitext(retira a extensao)
+        # pega a segunda parte do split (retira o caminho e deixa so arquivo com extensao) e a primeira parte do splitext(retira a extensao)
         document = replace_txt(document, 'ID_CEL', os.path.splitext(os.path.split(arquivo_xml)[1])[0])
         document = replace_txt(document, 'MARCAMODELO', root.find('report/general_information/selected_manufacture').text + ' ' + root.find('report/general_information/detected_model').text )
         document = replace_txt(document, 'NUM_IMEI1', root.find('report/general_information/imei').text)
