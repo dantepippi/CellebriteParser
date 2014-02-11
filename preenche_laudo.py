@@ -56,17 +56,16 @@ def get_lista_diretorios():
     return sorted([name for name in os.listdir(file_path) if os.path.isdir(os.path.join(file_path, name))])
 
 def cria_secoes_tabela(document, lista_dirs):
-    cont = 0
     for dir in lista_dirs:
-        cont += 1
-        conteudo_tabela = open('./template_tabela.txt').read()
+        conteudo_tabela = open('./templatenovo.txt').read()
+        conteudo_tabela = conteudo_tabela.replace('\n', '')
         document = insere_tabela(document, conteudo_tabela)
-        #document = replace_txt(document, 'CONT_TABELA' + str(cont), conteudo_tabela)
         document = percorre_arquivos_xml(document, dir)
     return document
  
 def insere_tabela(document, tabela):
-     posicao = re.search(r'<w:tbl', document).start()
+     posicao = re.search(r'<w:p><w:pPr><w:pStyle w:val="style52"/><w:jc w:val="both"/></w:pPr><w:r><w:rPr><w:b/><w:iCs/><w:spacing w:val="-3"/></w:rPr><w:t>Legenda:</w:t>', document).start()
+     print document[:posicao]
      return document[:posicao] + tabela + document[posicao:]
      
         

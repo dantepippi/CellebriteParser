@@ -24,10 +24,11 @@ def parse_arquivo_xml(arquivo_xml, document):
         document = replace_txt(document, 'DESC_OPERADORA', root.find('report/general_information/spn').text)
         document = replace_txt(document, 'NUM_ICC', root.find('report/general_information/iccid').text)
         document = replace_txt(document, 'NUM_IMSI', root.find('report/general_information/imsi').text)    
-    
+    """
     for contato in tree.iter(tag='contact'):
         nome = remove_espacos_exc(contato.find('name').text)
         numero = contato.find('phone_number/value')
         print nome, '-', numero.text 
+    """
     return document
 
