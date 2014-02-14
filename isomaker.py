@@ -14,13 +14,12 @@ def grava_hashes(pasta):
     hashes.close()
     os.rename(tmp_dir + 'hashes.txt', pasta + 'hashes.txt')
     
-def gera_iso(pasta, label):
-    grava_hashes(pasta)
-    nome_iso = pasta + 'resultado' + label + '.iso'
-    p = subprocess.Popen(['mkisofs', '-J', '-l', '-R', '-V', label, '-iso-level', '4', '-o', nome_iso, pasta])
+def gera_iso(pasta_origem, pasta_destino, label):
+    grava_hashes(pasta_origem)
+    nome_iso = pasta_destino + label + '.iso'
+    p = subprocess.Popen(['mkisofs', '-J', '-l', '-R', '-V', label, '-iso-level', '4', '-o', nome_iso, pasta_origem])
     p.communicate()
-    os.remove(pasta + 'hashes.txt')
-    return calcula_hash(nome_iso)
+    return calcula_hash(pasta_origem + 'hashes.txt')
 
 def calcula_hash(filename, blocksize=65536):
     hasher = hashlib.sha256()
@@ -32,6 +31,3 @@ def calcula_hash(filename, blocksize=65536):
     str_hash = hasher.hexdigest()
     afile.close()
     return str_hash
-
-#grava_hashes(pasta_teste)
-#print gera_iso(pasta_teste, 'ISO') 
