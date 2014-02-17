@@ -79,7 +79,7 @@ def copia_arquivo_imagem():
         shutil.copyfile(arq, tmp_dir + 'word/media/image2.png')
 
 def get_lista_diretorios():
-    return sorted([name for name in os.listdir(file_path_backup) if os.path.isdir(os.path.join(file_path_backup, name))])
+    return sorted([name for name in os.listdir(file_path_backup) if (os.path.isdir(os.path.join(file_path_backup, name)) and 'Supporting' not in name)])
 
 def cria_secoes_tabela(conteudo, lista_dirs):
     primeiro = True
