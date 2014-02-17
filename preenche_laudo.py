@@ -5,9 +5,10 @@ import os
 import codecs
 from os.path import join
 import ConfigParser
-from isomaker import gera_iso
+from isomaker import gera_iso, gera_contents_frame
 import glob
 import shutil
+import my_config
 from xmlparse import parse_arquivo_xml, replace_txt
 
 file_path_base = sys.argv[1]
@@ -15,14 +16,14 @@ file_path_midia = file_path_base + 'midia/'
 file_path_backup = file_path_base + 'backup/'
 tmp_dir = file_path_base + 'tmp/'
 
-def altera_docx():
+def altera_docx(lista_dirs):
     config = abre_arquivo_conf()
     num_laudo = config.get('LAUDO', 'NUMERO', 0).encode('UTF-8')
     for arq in glob.glob(tmp_dir + 'word/*.xml'):
         file = open(arq, 'r+')
         conteudo = file.read()
         if 'document' in arq:
-            conteudo = cria_secoes_tabela(conteudo, get_lista_diretorios())
+            conteudo = cria_secoes_tabela(conteudo, lista_dirs)
             hash_iso = gera_iso(file_path_backup, file_path_base, 'L' + num_laudo.replace("/", "_"))
             conteudo = replace_txt(conteudo, 'HASHISO', hash_iso.upper())
             conteudo = replace_txt(conteudo, 'DATALAUDO', get_data_por_extenso(config.get('LAUDO', 'DATA', 0)))
@@ -106,21 +107,14 @@ def backup_arquivos_midia():
 def remove_extra_dirs():
     shutil.rmtree(tmp_dir, True)
     shutil.rmtree(file_path_backup, True)
-
-def remove_quebra_linha(arq):
-    file = open(arq, 'r+')
-    texto = file.read()
-    texto = texto.replace('\n', '')
-    file.seek(0)
-    file.write(texto)
-    file.truncate()
-    file.close()
     
-#remove_quebra_linha('template_sim_avulso.txt')
+#arq_replace_strings('template_sim_avulso.txt', '\n', '')
 remove_extra_dirs()
 abreDoc(file_path_base + 'd1.docx')
 copia_arquivo_imagem()
 backup_arquivos_midia()
-altera_docx()
+lista_dirs = get_lista_diretorios()
+gera_contents_frame(lista_dirs, file_path_backup)
+altera_docx(lista_dirs) # aqui esta sendo gerada a midia, qualquer arquivo que deva ser inserido na midia tem que ser editado antes
 salva_documento(file_path_base + 'd2.docx')
 remove_extra_dirs()
