@@ -6,12 +6,16 @@ import my_config
 
 tmp_dir = 'tmp/'
 arq_contents = 'contents.htm'
+arq_info = 'caseInformation.htm'
 
 def gera_contents_frame(lista_dirs, file_path_backup):
     str_categorias = ''
     for dir in lista_dirs:
         str_categorias += '<p><a href="' + dir + '" class="SmallText2" target="ReportPage">' + dir + '</a></p>'
-    my_config.arq_replace_strings(file_path_backup + arq_contents, 'STR_CATEGORIAS', str_categorias)
+    my_config.arq_replace_strings(file_path_backup + arq_contents, {'STR_CATEGORIAS': str_categorias})
+
+def gera_case_information(config, file_path_backup):
+    my_config.arq_replace_strings(file_path_backup + arq_info, config)
 
 def grava_hashes(pasta):
     hashes = open(tmp_dir + 'hashes.txt', 'w')

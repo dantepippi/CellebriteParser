@@ -2,10 +2,8 @@ import re
 import sys
 import zipfile
 import os
-import codecs
 from os.path import join
-import ConfigParser
-from isomaker import gera_iso, gera_contents_frame
+from isomaker import gera_iso, gera_contents_frame, gera_case_information
 import glob
 import shutil
 import my_config
@@ -16,9 +14,8 @@ file_path_midia = file_path_base + 'midia/'
 file_path_backup = file_path_base + 'backup/'
 tmp_dir = file_path_base + 'tmp/'
 
-def altera_docx(lista_dirs):
-    config = abre_arquivo_conf()
-    num_laudo = config.get('LAUDO', 'NUMERO', 0).encode('UTF-8')
+def altera_docx(lista_dirs, config):
+    num_laudo = config['NUMLAUDO']
     for arq in glob.glob(tmp_dir + 'word/*.xml'):
         file = open(arq, 'r+')
         conteudo = file.read()
@@ -26,24 +23,12 @@ def altera_docx(lista_dirs):
             conteudo = cria_secoes_tabela(conteudo, lista_dirs)
             hash_iso = gera_iso(file_path_backup, file_path_base, 'L' + num_laudo.replace("/", "_"))
             conteudo = replace_txt(conteudo, 'HASHISO', hash_iso.upper())
-            conteudo = replace_txt(conteudo, 'DATALAUDO', get_data_por_extenso(config.get('LAUDO', 'DATA', 0)))
-            conteudo = replace_txt(conteudo, 'NOMEPERITO', config.get('LAUDO', 'PCF1', 0).split("|")[0])
-            conteudo = replace_txt(conteudo, 'NUMIPL', config.get('SOLICITACAO', 'NUMERO_IPL', 0))
-            conteudo = replace_txt(conteudo, 'IDAUTORIDADE', config.get('SOLICITACAO', 'AUTORIDADE', 0))
-            conteudo = replace_txt(conteudo, 'DOCSOLICITANTE', config.get('SOLICITACAO', 'DOCUMENTO', 0))
-            conteudo = replace_txt(conteudo, 'DTDOC', config.get('SOLICITACAO', 'DATA_DOCUMENTO', 0))
-            conteudo = replace_txt(conteudo, 'NUMSISCRIM', config.get('SOLICITACAO', 'NUMERO_CRIMINALISTICA', 0))
-            conteudo = replace_txt(conteudo, 'DTSISCRIM', config.get('SOLICITACAO', 'DATA_CRIMINALISTICA', 0))
+            conteudo = my_config.str_replace_dict(conteudo, config)
         conteudo = replace_txt(conteudo, 'NUMLAUDO', num_laudo)
         file.seek(0)
         file.write(conteudo)
         file.truncate()
         file.close()
-
-def get_data_por_extenso(data):
-    mes_ext = {1: 'janeiro', 2 : 'fevereiro', 3: 'marco', 4: 'abril', 5: 'maio', 6: 'junho', 7: 'julho', 8: 'agosto', 9: 'setembro', 10: 'outubro', 11: 'novembro', 12: 'dezembro'}
-    dia, mes, ano = data.split("/")
-    return dia + ' de ' + mes_ext[int(mes)] + ' de ' + ano
 
 def abreDoc(arquivo):
     mydoc = zipfile.ZipFile(arquivo)
@@ -60,13 +45,6 @@ def salva_documento(output):
             conteudo.write(nome_arquivo, archivename)
             os.remove(nome_arquivo)
     conteudo.close()
-
-def abre_arquivo_conf():
-    config = ConfigParser.ConfigParser()
-    # Abre arquivo ASAP (que utiliza encoding LATIN-1)
-    for arq in glob.glob(file_path_base + "*.asap"):
-        config.readfp(codecs.open(arq, "r", 'LATIN-1'))
-    return config
 
 def percorre_arquivos_xml(conteudo, diretorio):
     for arq in glob.glob(file_path_backup + diretorio + "/*.xml"):
@@ -114,7 +92,9 @@ abreDoc(file_path_base + 'd1.docx')
 copia_arquivo_imagem()
 backup_arquivos_midia()
 lista_dirs = get_lista_diretorios()
+configuracoes = my_config.abre_arquivo_conf(file_path_base)
 gera_contents_frame(lista_dirs, file_path_backup)
-altera_docx(lista_dirs) # aqui esta sendo gerada a midia, qualquer arquivo que deva ser inserido na midia tem que ser editado antes
+gera_case_information(configuracoes, file_path_backup)
+altera_docx(lista_dirs, configuracoes) # aqui esta sendo gerada a midia, qualquer arquivo que deva ser inserido na midia tem que ser editado antes
 salva_documento(file_path_base + 'd2.docx')
 remove_extra_dirs()
