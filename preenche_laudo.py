@@ -8,11 +8,7 @@ import glob
 import shutil
 import my_config
 from xmlparse import parse_arquivo_xml, replace_txt
-
-file_path_base = sys.argv[1]
-file_path_midia = file_path_base + 'midia/'
-file_path_backup = file_path_base + 'backup/'
-tmp_dir = file_path_base + 'tmp/'
+from my_config import tmp_dir, file_path_backup, file_path_base, file_path_midia
 
 def altera_docx(lista_dirs, config):
     num_laudo = config['NUMLAUDO']
@@ -46,10 +42,10 @@ def salva_documento(output):
             os.remove(nome_arquivo)
     conteudo.close()
 
-def percorre_arquivos_xml(conteudo, diretorio):
+def percorre_arquivos_xml(conteudo, diretorio, contacts):
     for arq in glob.glob(file_path_backup + diretorio + "/*.xml"):
-        conteudo = parse_arquivo_xml(arq, conteudo, diretorio)
-        os.remove(arq) 
+        conteudo = parse_arquivo_xml(arq, conteudo, diretorio, contacts)
+        os.remove(arq)
     return conteudo
 
 def copia_arquivo_imagem():
@@ -61,6 +57,8 @@ def get_lista_diretorios():
 
 def cria_secoes_tabela(conteudo, lista_dirs):
     primeiro = True
+    contacts = {}
+    contacts['LISTA_CONTATOS'] = ''
     for diretorio in lista_dirs:
         if 'CELULAR' in diretorio:
             if primeiro:
@@ -72,7 +70,8 @@ def cria_secoes_tabela(conteudo, lista_dirs):
             conteudo_tabela = open('./template_sim_avulso.txt').read()
         conteudo_tabela = conteudo_tabela.replace('\n', '')
         conteudo = insere_tabela(conteudo, conteudo_tabela)
-        conteudo = percorre_arquivos_xml(conteudo, diretorio)
+        conteudo = percorre_arquivos_xml(conteudo, diretorio, contacts)
+    my_config.arq_replace_strings(file_path_backup + 'SupportingFiles/busca/busca.htm', contacts)
     return conteudo 
  
 def insere_tabela(conteudo, tabela):
