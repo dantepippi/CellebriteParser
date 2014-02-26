@@ -1,0 +1,312 @@
+<w:tbl>
+<w:tblPr>
+<w:tblW w:w="0" w:type="auto"/>
+<w:jc w:val="center"/>
+<w:tblInd w:w="23" w:type="dxa"/>
+<w:tblBorders>
+<w:top w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+<w:left w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+<w:bottom w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+<w:right w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+<w:insideH w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+<w:insideV w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+</w:tblBorders>
+<w:tblCellMar>
+<w:top w:w="28" w:type="dxa"/>
+<w:left w:w="18" w:type="dxa"/>
+<w:bottom w:w="28" w:type="dxa"/>
+<w:right w:w="28" w:type="dxa"/>
+</w:tblCellMar>
+<w:tblLook w:val="04A0"/>
+</w:tblPr>
+<w:tblGrid>
+<w:gridCol w:w="1219"/>
+<w:gridCol w:w="1984"/>
+<w:gridCol w:w="5754"/>
+</w:tblGrid>
+<w:tr w:rsidR="0072753F">
+<w:trPr>
+<w:cantSplit/>
+<w:trHeight w:val="20"/>
+<w:jc w:val="center"/>
+</w:trPr>
+<w:tc>
+<w:tcPr>
+<w:tcW w:w="1219" w:type="dxa"/>
+<w:vMerge w:val="restart"/>
+<w:tcBorders>
+<w:top w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+<w:left w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+<w:bottom w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+<w:right w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+</w:tcBorders>
+<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+<w:tcMar>
+<w:left w:w="18" w:type="dxa"/>
+</w:tcMar>
+<w:vAlign w:val="center"/>
+</w:tcPr>
+<w:p w:rsidR="0072753F" w:rsidRDefault="003E2899">
+<w:pPr>
+<w:keepNext/>
+<w:spacing w:after="0" w:line="100" w:lineRule="atLeast"/>
+<w:ind w:left="57"/>
+</w:pPr>
+<w:r>
+<w:rPr>
+<w:rFonts w:ascii="Times New Roman" w:eastAsia="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+<w:b/>
+<w:lang w:eastAsia="ar-SA"/>
+</w:rPr>
+<w:t>ID_CEL</w:t>
+</w:r>
+</w:p>
+</w:tc>
+<w:tc>
+<w:tcPr>
+<w:tcW w:w="1984" w:type="dxa"/>
+<w:tcBorders>
+<w:top w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+<w:left w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+<w:bottom w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+<w:right w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+</w:tcBorders>
+<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+<w:tcMar>
+<w:left w:w="18" w:type="dxa"/>
+</w:tcMar>
+<w:vAlign w:val="center"/>
+</w:tcPr>
+<w:p w:rsidR="0072753F" w:rsidRDefault="003E2899">
+<w:pPr>
+<w:keepNext/>
+<w:spacing w:after="0" w:line="100" w:lineRule="atLeast"/>
+<w:ind w:left="57"/>
+</w:pPr>
+<w:r>
+<w:rPr>
+<w:rFonts w:ascii="Times New Roman" w:eastAsia="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+<w:b/>
+<w:lang w:eastAsia="ar-SA"/>
+</w:rPr>
+<w:t>Aparelho</w:t>
+</w:r>
+</w:p>
+</w:tc>
+<w:tc>
+<w:tcPr>
+<w:tcW w:w="5754" w:type="dxa"/>
+<w:tcBorders>
+<w:top w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+<w:left w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+<w:bottom w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+<w:right w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+</w:tcBorders>
+<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+<w:tcMar>
+<w:left w:w="18" w:type="dxa"/>
+</w:tcMar>
+</w:tcPr>
+<w:p w:rsidR="0072753F" w:rsidRDefault="003E2899">
+<w:pPr>
+<w:keepNext/>
+<w:spacing w:after="0" w:line="100" w:lineRule="atLeast"/>
+<w:ind w:left="57"/>
+</w:pPr>
+<w:r>
+<w:rPr>
+<w:rFonts w:ascii="Times New Roman" w:eastAsia="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+<w:lang w:eastAsia="ar-SA"/>
+</w:rPr>
+<w:t>Marca/Modelo: MARCAMODELO</w:t>
+</w:r>
+</w:p>
+<w:p w:rsidR="0072753F" w:rsidRDefault="003E2899">
+<w:pPr>
+<w:keepNext/>
+<w:spacing w:after="0" w:line="100" w:lineRule="atLeast"/>
+<w:ind w:left="57"/>
+</w:pPr>
+<w:r>
+<w:rPr>
+<w:rFonts w:ascii="Times New Roman" w:eastAsia="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+<w:lang w:eastAsia="ar-SA"/>
+</w:rPr>
+<w:t>IMEI</w:t>
+</w:r>
+<w:r>
+<w:rPr>
+<w:rFonts w:ascii="Times New Roman" w:eastAsia="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+<w:lang w:eastAsia="ar-SA"/>
+</w:rPr>
+<w:t>: NUM_IMEI1 NUM_IMEI2</w:t>
+</w:r>
+</w:p>
+<w:p w:rsidR="0072753F" w:rsidRDefault="003E2899">
+<w:pPr>
+<w:keepNext/>
+<w:spacing w:after="0" w:line="100" w:lineRule="atLeast"/>
+<w:ind w:left="57"/>
+</w:pPr>
+<w:r>
+<w:rPr>
+<w:rFonts w:ascii="Times New Roman" w:eastAsia="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+<w:lang w:eastAsia="ar-SA"/>
+</w:rPr>
+<w:t>Tecnologia: GSM</w:t>
+</w:r>
+</w:p>
+<w:p w:rsidR="0072753F" w:rsidRDefault="003E2899">
+<w:pPr>
+<w:keepNext/>
+<w:spacing w:after="0" w:line="100" w:lineRule="atLeast"/>
+<w:ind w:left="57"/>
+</w:pPr>
+<w:r>
+<w:rPr>
+<w:rFonts w:ascii="Times New Roman" w:eastAsia="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+<w:lang w:eastAsia="ar-SA"/>
+</w:rPr>
+<w:t>Observações:</w:t>
+</w:r>
+</w:p>
+</w:tc>
+</w:tr>
+<w:tr w:rsidR="0072753F">
+<w:trPr>
+<w:cantSplit/>
+<w:trHeight w:val="420"/>
+<w:jc w:val="center"/>
+</w:trPr>
+<w:tc>
+<w:tcPr>
+<w:tcW w:w="1219" w:type="dxa"/>
+<w:vMerge/>
+<w:tcBorders>
+<w:top w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+<w:left w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+<w:bottom w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+<w:right w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+</w:tcBorders>
+<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+<w:tcMar>
+<w:left w:w="18" w:type="dxa"/>
+</w:tcMar>
+<w:vAlign w:val="center"/>
+</w:tcPr>
+<w:p w:rsidR="0072753F" w:rsidRDefault="0072753F">
+<w:pPr>
+<w:keepNext/>
+<w:spacing w:after="0" w:line="100" w:lineRule="atLeast"/>
+<w:ind w:left="57"/>
+</w:pPr>
+</w:p>
+</w:tc>
+<w:tc>
+<w:tcPr>
+<w:tcW w:w="1984" w:type="dxa"/>
+<w:tcBorders>
+<w:top w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+<w:left w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+<w:bottom w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+<w:right w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+</w:tcBorders>
+<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+<w:tcMar>
+<w:left w:w="18" w:type="dxa"/>
+</w:tcMar>
+<w:vAlign w:val="center"/>
+</w:tcPr>
+<w:p w:rsidR="0072753F" w:rsidRDefault="003E2899" w:rsidP="007A2893">
+<w:pPr>
+<w:keepNext/>
+<w:spacing w:after="0" w:line="100" w:lineRule="atLeast"/>
+<w:ind w:left="57"/>
+</w:pPr>
+<w:r>
+<w:rPr>
+<w:rFonts w:ascii="Times New Roman" w:eastAsia="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+<w:b/>
+<w:lang w:eastAsia="ar-SA"/>
+</w:rPr>
+<w:t>Cartão SIM</w:t>
+</w:r>
+</w:p>
+</w:tc>
+<w:tc>
+<w:tcPr>
+<w:tcW w:w="5754" w:type="dxa"/>
+<w:tcBorders>
+<w:top w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+<w:left w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+<w:bottom w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+<w:right w:val="single" w:sz="4" w:space="0" w:color="00000A"/>
+</w:tcBorders>
+<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+<w:tcMar>
+<w:top w:w="57" w:type="dxa"/>
+<w:left w:w="-5" w:type="dxa"/>
+<w:bottom w:w="57" w:type="dxa"/>
+<w:right w:w="0" w:type="dxa"/>
+</w:tcMar>
+<w:vAlign w:val="center"/>
+</w:tcPr>
+<w:p w:rsidR="0072753F" w:rsidRDefault="003E2899">
+<w:pPr>
+<w:keepNext/>
+<w:spacing w:after="0" w:line="100" w:lineRule="atLeast"/>
+<w:ind w:left="57"/>
+</w:pPr>
+<w:r>
+<w:rPr>
+<w:rFonts w:ascii="Times New Roman" w:eastAsia="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+<w:lang w:eastAsia="ar-SA"/>
+</w:rPr>
+<w:t>Operadora: DESC_OPERADORA</w:t>
+</w:r>
+</w:p>
+<w:p w:rsidR="0072753F" w:rsidRDefault="003E2899">
+<w:pPr>
+<w:keepNext/>
+<w:spacing w:after="0" w:line="100" w:lineRule="atLeast"/>
+<w:ind w:left="57"/>
+</w:pPr>
+<w:r>
+<w:rPr>
+<w:rFonts w:ascii="Times New Roman" w:eastAsia="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+<w:lang w:eastAsia="ar-SA"/>
+</w:rPr>
+<w:t>ICC-ID</w:t>
+</w:r>
+<w:r>
+<w:rPr>
+<w:rFonts w:ascii="Times New Roman" w:eastAsia="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+<w:lang w:eastAsia="ar-SA"/>
+</w:rPr>
+<w:t>: NUM_ICC</w:t>
+</w:r>
+</w:p>
+<w:p w:rsidR="0072753F" w:rsidRDefault="003E2899" w:rsidP="007A2893">
+<w:pPr>
+<w:keepNext/>
+<w:spacing w:after="0" w:line="100" w:lineRule="atLeast"/>
+<w:ind w:left="57"/>
+</w:pPr>
+<w:r>
+<w:rPr>
+<w:rFonts w:ascii="Times New Roman" w:eastAsia="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+<w:lang w:eastAsia="ar-SA"/>
+</w:rPr>
+<w:t>IMSI</w:t>
+</w:r>
+<w:r>
+<w:rPr>
+<w:rFonts w:ascii="Times New Roman" w:eastAsia="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+<w:lang w:eastAsia="ar-SA"/>
+</w:rPr>
+<w:t>: NUM_IMSI</w:t>
+</w:r>
+</w:p>
+</w:tc>
+</w:tr>
+</w:tbl>
